@@ -8,5 +8,5 @@ RUN apk del --purge .czu
 RUN apk add --no-cache libstdc++
 ENV DENO_INSTALL=/root/.deno
 ENV PATH=$DENO_INSTALL/bin:$PATH
-ENTRYPOINT ["sh"]
+ENTRYPOINT ["deno", "run"]
 CMD ["https://deno.land/std/examples/welcome.ts"]
