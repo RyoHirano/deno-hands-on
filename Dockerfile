@@ -1,11 +1,10 @@
-FROM frolvlad/alpine-glibc as build
+FROM frolvlad/alpine-glibc
 WORKDIR /home/app
-RUN set -eux
-RUN apk add --no-cache --update-cache --virtual .czu \
-    curl zip unzip
-RUN curl -fsSL https://deno.land/x/install/install.sh | sh
-RUN apk del --purge .czu
-RUN apk add --no-cache libstdc++
+RUN set -eux \
+    && apk add --no-cache --update-cache --virtual .czu curl zip unzip \
+    && curl -fsSL https://deno.land/x/install/install.sh | sh \
+    && apk del --purge .czu \
+    && apk add --no-cache libstdc++
 ENV DENO_INSTALL=/root/.deno
 ENV PATH=$DENO_INSTALL/bin:$PATH
 ENTRYPOINT ["deno", "run"]
