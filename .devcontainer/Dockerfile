@@ -7,5 +7,3 @@ RUN set -eux \
     && apk add --no-cache libstdc++
 ENV DENO_INSTALL=/root/.deno
 ENV PATH=$DENO_INSTALL/bin:$PATH
-ENTRYPOINT ["deno", "run"]
-CMD ["https://deno.land/std/examples/welcome.ts"]
