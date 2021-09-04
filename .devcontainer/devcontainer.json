@@ -1,22 +1,29 @@
 {
-    "name": "Deno-Hands-on",
-    "dockerFile": "Dockerfile",
-    "shutdownAction": "none",
-    "appPort": "5000:5000",
-    "extensions": [
-		"denoland.vscode-deno",
-		"eamodio.gitlens",
-		"mhutchie.git-graph",
-		"ms-vscode-remote.remote-containers"
-	],
-    "settings": {
-      "terminal.integrated.shell.linux": "/bin/bash",
-      "editor.formatOnSave": true,
-      "editor.tabSize": 2,
-      "editor.detectIndentation": false,
-      "editor.insertSpaces": true,
-      "deno.enable": true,
-      "deno.lint": true,
-      "deno.unstable": true
-    }
-  }
+  "name": "Deno-Hands-on",
+  "dockerFile": "Dockerfile",
+  "shutdownAction": "none",
+  "appPort": "6000:6000",
+  "extensions": [
+    "denoland.vscode-deno",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "ms-vscode-remote.remote-containers"
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.unstable": true
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.zshrc,target=/root/.zshrc,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.zlogin,target=/root/.zlogin,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.zprofile,target=/root/.zprofile,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.zshenv,target=/root/.zshenv,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.zprezto,target=/root/.zprezto,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.zpreztorc,target=/root/.zpreztorc,type=bind,consistency=cached"
+  ]
+}
